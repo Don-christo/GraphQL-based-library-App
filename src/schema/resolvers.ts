@@ -1,9 +1,11 @@
 import User from '../models/userModels';
 // import Books from '../models/booksModels'
 import Books, { IBooks } from '../models/booksModels';
-import { SaltGenerator, hashPassword,tokenGenerator} from '../utility/auth';
+import { SaltGenerator, hashPassword, tokenGenerator } from '../utility/auth';
 import bcrypt from 'bcrypt';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import { CreateBookInput, UpdateBookInput, DeleteBookInput } from './type-defs';
+
 
 
 const resolvers = {

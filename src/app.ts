@@ -5,7 +5,8 @@ import { ApolloServer } from "@apollo/server";
 import {startStandaloneServer} from '@apollo/server/standalone'
 import { GraphQLError } from 'graphql';
 import resolvers from './schema/resolvers'
-import typeDefs from './schema/type-defs'
+// eslint-disable-next-line no-unused-vars
+import typeDefs, { CreateBookInput, UpdateBookInput, DeleteBookInput } from './schema/type-defs'
 import { verifyToken } from "./utility/auth";
 
 
@@ -43,8 +44,38 @@ connectDatabase();
 //   console.log(`Running at ${url}`)
 // })();
 
+
+const mergedTypeDefs = `
+  ${typeDefs}
+  
+  input CreateBookInput {
+    title: String!
+    author: String!
+    date_published: String!
+    description: String!
+    page_count: Int!
+    genre: String!
+    publisher: String!
+  }
+
+  input UpdateBookInput {
+    title: String
+    author: String
+    date_published: String
+    description: String
+    page_count: Int
+    genre: String
+    publisher: String
+  }
+
+  input DeleteBookInput {
+    id: ID!
+  }
+`;
+
+
 const server = new ApolloServer({
-  typeDefs,
+  typeDefs: mergedTypeDefs,
   resolvers
 });
 const { url } = await startStandaloneServer(server, {
