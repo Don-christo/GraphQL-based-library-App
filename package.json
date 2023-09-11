@@ -1,0 +1,25 @@
+{
+  "name": "week-10-task-Don-christo",
+  "packageManager": "yarn@4.0.0-rc.43",
+  "type": "module",
+  "scripts": {
+    "start": "node ./dist/app.js",
+    "dev": "nodemon --experimental-specifier-resolution=node ./dist/app.js",
+    "build": "tsc",
+    "compile": "tsc -w"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.8.1",
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "graphql": "^16.7.1",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.4.1",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "typescript": "^5.1.6"
+  }
+}
